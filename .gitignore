@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+/.vs/QuestSystemManager/FileContentIndex
+/.vs/QuestSystemManager/v17
+/QuestSystemManager/x64/Debug
+*.user
+*.filters
+/x64/Debug
+*.vcxproj
+/QuestSystemManager.sln
