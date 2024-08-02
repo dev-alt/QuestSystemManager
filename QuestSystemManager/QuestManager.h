@@ -2,29 +2,25 @@
 #include <iostream>
 #include <string>
 #include <vector>
-using namespace std;
+#include "Quest.h"
 
-struct Quest {
-	string name;
-	bool completed;
-	bool failed;
-	bool abandoned;
-};
 
-class QuestManager {
-private:
-    vector<string> quests;
-    vector<string> completedQuests;
-    vector<string> abandonedQuests;
-    vector<string> failedQuests;
-public:
-    void AddQuest(const string& questName);
-    QuestManager();
-    void CompleteQuest(const string& questName);
-    void PrintQuests() const;
-    void CompletedQuests() const;
-    void AbandonQuest(const string& questName);
-    void FailQuest(const string& questName);
-    void ShowAbandonedQuests() const;
-    void ShowFailedQuests() const;
+class quest_manager {
+
+	private:
+		std::vector<quest> quests_;
+		std::vector<quest> completed_quests_;
+	    std::vector<quest> abandoned_quests_;
+	    std::vector<quest> failed_quests_;
+
+	public:
+	    void add_quest(const std::string& quest_name);
+	    quest_manager();
+	    void complete_quest(const std::string& quest_name);
+	    void print_quests() const;
+	    void completed_quests() const;
+	    void abandon_quest(const std::string& quest_name);
+	    void fail_quest(const std::string& quest_name);
+	    void show_abandoned_quests() const;
+	    void show_failed_quests() const;
 };

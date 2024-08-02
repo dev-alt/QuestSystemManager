@@ -1,69 +1,70 @@
-
 #include <iostream>
 #include <string>
 #include "QuestManager.h"
 
-
 using namespace std;
-QuestManager::QuestManager() {
-	// Constructor implementation
-}
 
-void QuestManager::AddQuest(const string& questName) {
-	if (questName.empty()) {
+quest_manager::quest_manager() = default;
+
+void quest_manager::add_quest(const string& quest_name) {
+	if (quest_name.empty()) {
 		throw invalid_argument("Quest name cannot be empty.");
 	}
-	quests.push_back(questName);
-	cout << "Quest added: " << questName << endl;
+	quests_.emplace_back(quest_name);
+	cout << "Quest added: " << quest_name << endl;
 }
 
-void QuestManager::CompleteQuest(const string& questName) {
-	if (questName.empty()) {
+void quest_manager::complete_quest(const string& quest_name) {
+	if (quest_name.empty()) {
 		throw invalid_argument("Quest name cannot be empty.");
 	}
-	completedQuests.push_back(questName);
-	cout << "Quest completed: " << questName << endl;
+	completed_quests_.emplace_back(quest_name);
+	cout << "Quest completed: " << quest_name << endl;
 }
 
-void QuestManager::PrintQuests() const {
+void quest_manager::print_quests() const {
 
 	cout << "Quests:" << endl;
-	for (int i = 0; i < quests.size(); i++) {
-		cout << quests[i] << endl;
+	for (const auto& quest : quests_)
+	{
+		cout << quest << endl;
 	}
 }
-void QuestManager::CompletedQuests() const {
-	for (int i = 0; i < completedQuests.size(); i++) {
-		cout << "Quest completed: " << completedQuests[i] << endl;
+void quest_manager::completed_quests() const {
+	for (const auto& completed_quest : completed_quests_)
+	{
+		cout << "Quest completed: " << completed_quest << endl;
 	}
 }
-void QuestManager::AbandonQuest(const string& questName) {
-	if (questName.empty()) {
+void quest_manager::abandon_quest(const string& quest_name) {
+	if (quest_name.empty()) {
 		throw std::invalid_argument("Quest name cannot be empty.");
 	}
-	abandonedQuests.push_back(questName);
-	cout << "Quest abandoned: " << questName << endl;
+	abandoned_quests_.emplace_back(quest_name);
+	cout << "Quest abandoned: " << quest_name << endl;
 }
-void QuestManager::FailQuest(const string& questName) {
-	if (questName.empty()) {
+void quest_manager::fail_quest(const string& quest_name) {
+	if (quest_name.empty()) {
 		throw std::invalid_argument("Quest name cannot be empty.");
 	}
-	failedQuests.push_back(questName);
-	cout << "Quest failed: " << questName << endl;
+	failed_quests_.emplace_back(quest_name);
+	cout << "Quest failed: " << quest_name << endl;
 }
-void QuestManager::ShowAbandonedQuests() const {
-	if (abandonedQuests.size() == 0) {
+void quest_manager::show_abandoned_quests() const {
+	if (abandoned_quests_.empty()) {
 		cout << "No abandoned quests" << endl;
 	}
-	for (int i = 0; i < abandonedQuests.size(); i++) {
-		cout << "Quest abandoned: " << abandonedQuests[i] << endl;
+	for (const auto& abandoned_quest : abandoned_quests_)
+	{
+		cout << "Quest abandoned: " << abandoned_quest << endl;
 	}
 }
-void QuestManager::ShowFailedQuests() const {
-	if (failedQuests.size() == 0) {
+void quest_manager::show_failed_quests() const {
+	if (failed_quests_.empty()) {
 		cout << "No failed quests" << endl;
 	}
-	for (int i = 0; i < failedQuests.size(); i++) {
-		cout << "Quest failed: " << failedQuests[i] << endl;
+	for (const auto& failed_quest : failed_quests_)
+	{
+		cout << "Quest failed: " << failed_quest << endl;
 	}
 }
