@@ -1,4 +1,4 @@
-#include "QuestManager.h"
+#include "QuestSystem.h"
 
 using namespace std;
 int main() {
