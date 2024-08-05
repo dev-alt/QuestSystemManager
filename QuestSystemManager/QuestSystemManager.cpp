@@ -1,6 +1,7 @@
 #include "QuestSystem.h"
 
 using namespace std;
+
 int main() {
     quest_manager quest_manager;
 
